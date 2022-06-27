@@ -100,6 +100,11 @@ const AppProvider = ({ children }) => {
     setSetupScreen(true);
   };
 
+  const errorHandle = () => {
+    setSetupScreen(true);
+    setError(false);
+  };
+
   // checking the correct answer, and incrementing the correct answer counter
   const checkAnswer = (answer) => {
     if (answer === questions[currentQuestion].correct_answer) {
@@ -138,6 +143,7 @@ const AppProvider = ({ children }) => {
         handleSubmit,
         categoryValues,
         playAgain,
+        errorHandle,
       }}
     >
       {children}

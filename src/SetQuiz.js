@@ -1,22 +1,23 @@
 import React, { useContext } from 'react';
 import { AppContext } from './Context';
+import ErrorModal from './ErrorModal';
 
 const SetQuiz = () => {
-  const { quizValues, categoryValues, handleChange, handleSubmit } =
+  const { quizValues, categoryValues, handleChange, handleSubmit, error } =
     useContext(AppContext);
   return (
-    <div className="relative font-poppins flex flex-col justify-center items-center h-screen w-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-      <h1 className="absolute top-5 text-white text-4xl md:text-7xl font-lobster cursor-default">
+    <div className="relative flex h-screen w-screen flex-col items-center justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 font-poppins">
+      <h1 className="absolute top-5 cursor-default font-lobster text-4xl text-white md:text-7xl">
         TriviApp
       </h1>
-      <div className="w-10/12 bg-white bg-opacity-40 backdrop-blur-lg rounded-xl flex flex-col justify-center items-center">
+      <div className="flex w-10/12 flex-col items-center justify-center rounded-xl bg-white bg-opacity-40 backdrop-blur-lg">
         <div className="flex flex-col items-center">
-          <h1 className="mt-5 text-3xl text-black font-poppins">
+          <h1 className="mt-5 font-poppins text-3xl text-black">
             Setup Trivia
           </h1>
 
           {/* number of questions         */}
-          <div className="flex flex-col w-full justify-center items-center mt-8">
+          <div className="mt-8 flex w-full flex-col items-center justify-center">
             <label className="mb-1" htmlFor="questionAmount">
               Select Number of Questions
             </label>
@@ -26,13 +27,13 @@ const SetQuiz = () => {
               id="questionAmount"
               value={quizValues.questionAmount}
               onChange={handleChange}
-              className="w-2/3 border rounded-lg p-2 text-center"
+              className="w-2/3 rounded-lg border p-2 text-center"
               min={1}
               max={100}
             />
           </div>
           {/* categories */}
-          <div className="flex flex-col w-full justify-center items-center mt-3">
+          <div className="mt-3 flex w-full flex-col items-center justify-center">
             <label className="mb-1" htmlFor="category">
               Select a Category
             </label>
@@ -41,7 +42,7 @@ const SetQuiz = () => {
               id="category"
               value={quizValues.category}
               onChange={handleChange}
-              className="w-2/3 border rounded-lg text-center p-2"
+              className="w-2/3 rounded-lg border p-2 text-center"
             >
               {Object.keys(categoryValues).map((category, index) => {
                 return (
@@ -53,7 +54,7 @@ const SetQuiz = () => {
             </select>
           </div>
           {/* categories */}
-          <div className="flex flex-col w-full justify-center items-center mt-3">
+          <div className="mt-3 flex w-full flex-col items-center justify-center">
             <label className="mb-1" htmlFor="category">
               Select a Difficulty
             </label>
@@ -62,7 +63,7 @@ const SetQuiz = () => {
               id="difficulty"
               value={quizValues.difficulty}
               onChange={handleChange}
-              className="w-2/3 border rounded-lg text-center p-2"
+              className="w-2/3 rounded-lg border p-2 text-center"
             >
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
@@ -73,34 +74,34 @@ const SetQuiz = () => {
           <div className="mt-8 mb-5 w-full">
             <button
               onClick={handleSubmit}
-              className="w-full px-5 py-3 rounded-xl text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-800 active:bg-grey-900 focus:outline-none border-2 border-white focus:border-sky-200 transition-all"
+              className="active:bg-grey-900 w-full rounded-xl border-2 border-white bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition-all hover:bg-indigo-800 focus:border-sky-200 focus:outline-none"
             >
               START
             </button>
           </div>
         </div>
       </div>
-      <footer className="absolute text-center text-white bottom-0">
-        <p className="text-xs mb-1">
+      <footer className="absolute bottom-0 text-center text-white">
+        <p className="mb-1 text-xs">
           Made with ❤️ by{' '}
           <span className="text-sm transition-colors hover:text-indigo-800">
             Cetin Sangu
           </span>
         </p>
 
-        <div className="flex justify-center mb-2">
+        <div className="mb-2 flex justify-center">
           <a
             href="https://twitter.com/littledevone_"
             target="_blank"
             type="button"
-            className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1"
+            className="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
           >
             <svg
               aria-hidden="true"
               focusable="false"
               data-prefix="fab"
               data-icon="twitter"
-              className="w-3 h-full mx-auto"
+              className="mx-auto h-full w-3"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
@@ -116,14 +117,14 @@ const SetQuiz = () => {
             href="mailto:sangucetin@gmail.com"
             target="_blank"
             type="button"
-            className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1"
+            className="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
           >
             <svg
               aria-hidden="true"
               focusable="false"
               data-prefix="fab"
               data-icon="google"
-              className="w-3 h-full mx-auto"
+              className="mx-auto h-full w-3"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 488 512"
@@ -139,14 +140,14 @@ const SetQuiz = () => {
             href="https://tr.linkedin.com/in/cetinsangu"
             target="_blank"
             type="button"
-            className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1"
+            className="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
           >
             <svg
               aria-hidden="true"
               focusable="false"
               data-prefix="fab"
               data-icon="linkedin-in"
-              className="w-3 h-full mx-auto"
+              className="mx-auto h-full w-3"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 448 512"
@@ -162,14 +163,14 @@ const SetQuiz = () => {
             href="https://github.com/cetinsangu"
             target="_blank"
             type="button"
-            className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1"
+            className="m-1 h-9 w-9 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
           >
             <svg
               aria-hidden="true"
               focusable="false"
               data-prefix="fab"
               data-icon="github"
-              className="w-3 h-full mx-auto"
+              className="mx-auto h-full w-3"
               role="img"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 496 512"
@@ -182,6 +183,7 @@ const SetQuiz = () => {
           </a>
         </div>
       </footer>
+      {error && <ErrorModal />}
     </div>
   );
 };
