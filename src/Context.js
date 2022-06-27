@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const AppContext = React.createContext();
 
+// special values for the API, categories and values
 const categoryValues = {
   'General Knowledge': 9,
   'Entertainment: Books': 10,
@@ -58,10 +59,13 @@ const AppProvider = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const fetchQuestions = async (url) => {
+    // when the user clicks the start button, set the setupScreen to false, and set the loading to true. This will show the loading screen, an animated svg.
     setLoading(true);
     setSetupScreen(false);
     const response = await axios(url).catch((err) => console.log(err));
+    // if there is a response, set the questions. if not, set the setup screen to true again.
     if (response) {
+      // if response is not empty, set the questions. If not, set the setup screen to true again and set the error to true.
       if (response?.data?.results?.length > 0) {
         setQuestions(response?.data?.results);
         setLoading(false);
@@ -75,7 +79,7 @@ const AppProvider = ({ children }) => {
       setSetupScreen(true);
     }
   };
-
+  //move to the next question, if the current question is the last question, finish the quiz
   const nextQuestion = () => {
     setCurrentQuestion((cur) => {
       const currentQuestion = cur + 1;
@@ -87,6 +91,7 @@ const AppProvider = ({ children }) => {
     });
   };
 
+  // when the quiz is finished, reset the state, and show the setup screen, so the user can start a new quiz
   const playAgain = () => {
     setIsModalOpen(false);
     // setCurrentQuestion(0);
@@ -95,6 +100,7 @@ const AppProvider = ({ children }) => {
     setSetupScreen(true);
   };
 
+  // checking the correct answer, and incrementing the correct answer counter
   const checkAnswer = (answer) => {
     if (answer === questions[currentQuestion].correct_answer) {
       setCorrectAnswer((cur) => cur + 1);
@@ -102,10 +108,12 @@ const AppProvider = ({ children }) => {
     nextQuestion();
   };
 
+  // setting the quiz values, matching the category, difficulty and amount of questions to the values in the state
   const handleChange = (e) => {
     setQuizValues({ ...quizValues, [e.target.name]: e.target.value });
   };
 
+  // when the user clicks the start button, fetch the questions from the API. The API is called with the values in the state, and the questions are fetched. If the questions are fetched, the setup screen is hidden, and the quiz is started. If the questions are not fetched, the setup screen is shown, and the user is notified of an error. The error is also shown in the setup screen.
   const handleSubmit = (e) => {
     e.preventDefault();
     const { questionAmount, category, difficulty } = quizValues;

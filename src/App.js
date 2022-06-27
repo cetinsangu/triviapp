@@ -27,8 +27,9 @@ function App() {
   const { question, incorrect_answers, correct_answer } =
     questions[currentQuestion];
   let answers = [...incorrect_answers];
+  // random the index of answers
   const randomIndex = Math.floor(Math.random() * 4);
-
+  // randomize the answers
   answers.splice(randomIndex, 0, correct_answer);
 
   return (
