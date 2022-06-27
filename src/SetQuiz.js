@@ -9,7 +9,7 @@ const SetQuiz = () => {
       <h1 className="absolute top-5 text-white text-4xl md:text-7xl font-lobster cursor-default">
         TriviApp
       </h1>
-      <div className="w-10/12 bg-white border rounded-xl flex flex-col justify-center items-center">
+      <div className="w-10/12 bg-white bg-opacity-40 backdrop-blur-lg rounded-xl flex flex-col justify-center items-center">
         <div className="flex flex-col items-center">
           <h1 className="mt-5 text-3xl text-black font-poppins">
             Setup Trivia
@@ -73,7 +73,7 @@ const SetQuiz = () => {
           <div className="mt-8 mb-5 w-full">
             <button
               onClick={handleSubmit}
-              className="w-full px-5 py-3 rounded-xl text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-800 active:bg-grey-900 focus:outline-none border-4 border-white focus:border-sky-200 transition-all"
+              className="w-full px-5 py-3 rounded-xl text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-800 active:bg-grey-900 focus:outline-none border-2 border-white focus:border-sky-200 transition-all"
             >
               START
             </button>
