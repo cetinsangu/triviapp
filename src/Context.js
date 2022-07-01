@@ -38,7 +38,7 @@ const AppProvider = ({ children }) => {
   const [quizValues, setQuizValues] = useState({
     questionAmount: 20,
     category: 'General Knowledge',
-    difficulty: 'easy',
+    difficulty: 'medium',
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
 
