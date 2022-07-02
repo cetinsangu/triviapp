@@ -1,4 +1,4 @@
-# TriviApp: A Trivia App With 1000+ Questions, Multiple Categories and Difficulties | ReactJS, Axios, OpenTDB, Tailwind CSS
+# <a href="https://cetinsangu-triviapp.vercel.app/">TriviApp</a>: A Trivia App With 1000+ Questions, Multiple Categories and Difficulties | ReactJS, Axios, OpenTDB, Tailwind CSS
 
 - Test your knowledge on everything!
 
@@ -6,11 +6,11 @@
 
 # Tech Stack
 
-## ReactJS
+- ReactJS
 
 - Hooks: UseState
 - ContextAPI
 
-## Axios
+- Axios
 
-## Tailwind CSS
+- Tailwind CSS
