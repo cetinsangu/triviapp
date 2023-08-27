@@ -1,4 +1,4 @@
-# <a href="https://cetinsangu-triviapp.vercel.app/">TriviApp</a>: A Trivia App With 1000+ Questions, Multiple Categories and Difficulties | ReactJS, Axios, OpenTDB, Tailwind CSS
+# <a href="https://triviapp.cetinsangu.com">TriviApp</a>: A Trivia App With 1000+ Questions, Multiple Categories and Difficulties | ReactJS, Axios, OpenTDB, Tailwind CSS
 
 - Test your knowledge on everything!
 
